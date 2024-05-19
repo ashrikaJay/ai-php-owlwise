@@ -1,2 +1,2 @@
-# aiphp-day1
+# aiphp-b1
 This is the main repository for the AI php project
