@@ -33,7 +33,7 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee List</title>
+    <title>Customer List</title>
     <link rel="icon" type="image/png" href="img/apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -182,7 +182,7 @@ $conn->close();
       </div>
     </nav>
     <div class="container-fluid mb-4" style="background-color:black;">
-    <h1 class="hero-text text-center p-4" style="color:white;"><i class="fa regular fa-address-card" style="margin-right: 20px"></i>Our Employee List</h1>
+    <h1 class="hero-text text-center p-4" style="color:white;"><i class="fa regular fa-address-card" style="margin-right: 20px"></i>Our Customer List</h1>
         <div id="table-container" style="background-color: black; ">
             <div id="table-wrapper" class="responsive">
             <table  id="emptable" class="table table-striped table-hover table-borderless" style="max-width: 1100px; ">

@@ -243,6 +243,20 @@
             
             
           </form>
+          <?php 
+          if (isset($_GET['error'])) { 
+              echo('<div id="alertbox" class="alert alert-danger mt-1" role="alert" style="max-width: 350px;  position: relative; left: 50%; transform: translateX(-50%); border-radius: 15px;">
+                Oops wrong password! Try again...
+              </div>');
+            }
+          
+          if (isset($_GET['error-user'])) { 
+            echo('<div id="alertbox" class="alert alert-danger mt-1" role="alert" style="max-width: 350px;  position: relative; left: 50%; transform: translateX(-50%); border-radius: 15px;">
+              Your username is invalid! Please Try Again or Sign Up...
+            </div>');
+          }
+          
+          ?>
         
        </div> 
       </div><br>

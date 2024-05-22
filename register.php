@@ -202,7 +202,7 @@
               <div class="input-group">
                 <div class="input-group">
                   <span class="input-group-text"><i class="fa fa-envelope"></i></span>
-                  <input type="email" class="form-control text-center" id="InputEmail" name="email" aria-describedby="InfoHelp" placeholder="Email address" required>
+                  <input type="email" onkeyup="hideAlertBox()" class="form-control text-center" id="InputEmail" name="email" aria-describedby="InfoHelp" placeholder="Email address" required>
     
                 </div>
               </div>
@@ -314,7 +314,7 @@
 
           <?php 
           if (isset($_GET['error'])) { 
-              echo('<div class="alert alert-danger mt-1" role="alert" style="max-width: 350px;  position: relative; left: 50%; transform: translateX(-50%); border-radius: 15px;">
+              echo('<div id="alertbox" class="alert alert-danger mt-1" role="alert" style="max-width: 350px;  position: relative; left: 50%; transform: translateX(-50%); border-radius: 15px;">
                 User already exists with this email!
               </div>');
             }
@@ -372,7 +372,14 @@
       window.addEventListener('resize', handleResize);
       
       handleResize();
-      
+
+      //alertbox disappearance
+      function hideAlertBox() {
+        //var or const
+        var alertBox = document.getElementById("alertbox");
+        alertBox.style.display = "none";
+      }
+            
     </script>
     
   </body>
