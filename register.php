@@ -11,6 +11,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
     <style>
+
+      .logo-to-brand {
+        border-radius: 50%;
+      }
+      
       .btn.btn-primary:hover{
         border-color: #0c4b6b;
         color: rgb(5, 5, 5);
@@ -131,6 +136,8 @@
         color: #0c617b;
       }
 
+      
+
 
       
 
@@ -151,13 +158,13 @@
        <div class="collapse navbar-collapse" id="navbarSupportedContent">
          <ul class="nav nav-underline">
             <li class="nav-item">
-             <a class="nav-link" aria-current="page" href="index.html">Home</a>
+             <a class="nav-link" aria-current="page" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-             <a class="nav-link" href="login.html">Login</a>
+             <a class="nav-link" href="login.php">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="register.html">Register</a>
+              <a class="nav-link active" href="register.php">Register</a>
              </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -202,9 +209,6 @@
             </div>
             <br>
             
-
-      
-
             <!--Password and Confirm Password-->
             <div class="container">
               &nbsp;&nbsp;&nbsp;&nbsp;
@@ -304,8 +308,22 @@
             </div>
             
           </form>
+           <!--<div class="alert alert-danger" role="alert">
+          <?php //echo isset($errorMessage) ? $errorMessage : ''; ?>
+          </div>-->
+
+          <?php 
+          if (isset($_GET['error'])) { 
+              echo('<div class="alert alert-danger mt-1" role="alert" style="max-width: 350px;  position: relative; left: 50%; transform: translateX(-50%); border-radius: 15px;">
+                User already exists with this email!
+              </div>');
+            }
+          
+          ?>
        </div> 
       </div><br>
+     
+      <br><br><br>
      
     </div>
 

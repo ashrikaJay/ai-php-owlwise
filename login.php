@@ -16,6 +16,10 @@
         background: linear-gradient(to left, #113651,#1e608f,#113651);
 
       }
+
+      .logo-to-brand {
+        border-radius: 50%;
+      }
      
       .btn.btn-primary{
         background-color: #0c617b;
@@ -150,13 +154,13 @@
        <div class="collapse navbar-collapse" id="navbarSupportedContent">
          <ul class="nav nav-underline">
             <li class="nav-item">
-             <a class="nav-link" aria-current="page" href="index.html">Home</a>
+             <a class="nav-link" aria-current="page" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-             <a class="nav-link active" href="login.html">Login</a>
+             <a class="nav-link active" href="login.php">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="register.html">Register</a>
+              <a class="nav-link" href="register.php">Register</a>
              </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -187,14 +191,14 @@
       <!--<div class="shadow-lg p-3 mb-5 bg-rounded">-->
       <div class="card" style="width: 26rem; background-color: #568ec9 ;"><br>
           <h2 class="mb-4 fw-light " style="font-family: 'Segoe UI', sans-serif; color:#1f3b59">Sign In!</h2>
-          <form action="/login" method="POST">
+          <form action="dblogin.php" method="POST">
 
             <!--username login-->
             <div class="container">
                 <div class="input-group">
                   <div class="input-group">
                     <span class="input-group-text"><i class="fa fa-envelope"></i></span>
-                    <input type="email" class="form-control text-center" id="InputUsername" placeholder="Username" required>
+                    <input type="email" name="email" class="form-control text-center" id="InputUsername" placeholder="Username" required>
       
                   </div>
                 </div>
@@ -205,7 +209,7 @@
                 <div class="input-group">
                   <div class="input-group">
                     <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                    <input type="password" class="form-control text-center" id="InputLoginPassword" placeholder="Password" required>
+                    <input type="password" name="pass" class="form-control text-center" id="InputLoginPassword" placeholder="Password" required>
 
                   </div>
                 </div>
@@ -231,7 +235,7 @@
             <!--Sign up link-->
             <div class="container-md">
                 <div>
-                    <p>Don't have an account?<a href="register.html" class="sign-up-option" style="font-style: italic;">Sign Up</a></p>
+                    <p>Don't have an account?<a href="register.php" class="sign-up-option" style="font-style: italic;">Sign Up</a></p>
                 </div>
             </div>
 

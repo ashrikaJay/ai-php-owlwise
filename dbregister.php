@@ -25,15 +25,29 @@ $birthday = $_POST['birthday'];
 $gender = $_POST['gender'];
 $salary = $_POST['salary'];
 
-// Insert data into the database
 $sql = "INSERT INTO Employee (Email, Password, FirstName, LastName, Phone, DateOfBirth, Gender, Salary)
-        VALUES ('$email', '$confirmPassword', '$firstName', '$lastName', '$contactNumber', '$birthday', '$gender', '$salary')";
+VALUES ('$email', '$confirmPassword', '$firstName', '$lastName', '$contactNumber', '$birthday', '$gender', '$salary')";
 
-if ($conn->query($sql) === TRUE) {
-    echo "Data inserted successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+
+try{
+    if ($conn->query($sql) === TRUE) {
+        //echo "Data inserted successfully";
+        header('Location:login.php?');
+        exit();
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+}catch(mysqli_sql_exception $e){
+    if(strpos($e->getMessage(),'Duplicate entry') !== false){
+        //echo("User already exists");
+        header('Location:register.php?error');
+        exit();
+    }else{
+        echo"Error: " . $e->getMessage();
+    }
+
 }
 
 $conn->close();
+
 ?>
