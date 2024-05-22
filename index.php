@@ -304,7 +304,7 @@
       <div class="row g-0">
         <div class="col-md-4">
           <div class="text-center">
-            <img src="img/data2.png" class="img-fluid rounded img-shift-right" alt="Data Privacy" >
+            <img src="img/data.png" class="img-fluid rounded img-shift-right" alt="Data Privacy" >
           </div>
         </div>
         <div class="col-md-7 offset-md-1" style="margin-top: 60px;">
