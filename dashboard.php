@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION['user_id'])) {
+    // Redirect to the login page
+    header("Location: login.php");
+    exit();
+}
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -149,7 +160,8 @@
     <div class="container-md text-center mt-5" style="max-width: 800px;">
       <div class="custom-shadow" >
         <div class="card-type-2">
-            <h1 class="hero-text" style="font-family: Poetsen One ,sans-serif; color:antiquewhite;">Welcome OwlWiser!</h1>
+            <h1 class="hero-text" style="font-family: Poetsen One ,sans-serif; color:antiquewhite;">Welcome OwlWiser!</h1><button onclick="logout()" class="btn btn-primary">Logout</button>
+
             <p style="font-weight: 350; text-align: center; color: white;" >Let's check out some books that might catch your interest or even better, get started on a book already in mind... </p><br>
           
         </div>
@@ -246,6 +258,18 @@
           }
         }
       });
+
+      //logout when clicked
+      function logout() {
+          // Clear session data
+          sessionStorage.clear();
+
+          // Redirect to the login page
+          window.location.href = "login.php";
+
+          // Prevent back button navigation
+          history.pushState(null, null, 'login.php');
+        }
 
 
 

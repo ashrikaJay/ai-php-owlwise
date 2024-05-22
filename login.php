@@ -299,6 +299,8 @@
         window.addEventListener('resize', handleResize);
         
         handleResize();
+
+        
     </script>
     </div>
   </body>
