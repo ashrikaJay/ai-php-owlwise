@@ -1,12 +1,12 @@
 <?php
 session_start();
-
+/*mine
 // Check if the user is logged in
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['email'])) {
     // Redirect to the login page
     header("Location: login.php");
     exit();
-}
+}*/
 
 ?>
 <!doctype html>
@@ -160,7 +160,8 @@ if (!isset($_SESSION['user_id'])) {
     <div class="container-md text-center mt-5" style="max-width: 800px;">
       <div class="custom-shadow" >
         <div class="card-type-2">
-            <h1 class="hero-text" style="font-family: Poetsen One ,sans-serif; color:antiquewhite;">Welcome OwlWiser!</h1><button onclick="logout()" class="btn btn-primary">Logout</button>
+            <h1 class="hero-text" style="font-family: Poetsen One ,sans-serif; color:antiquewhite;">Welcome OwlWiser!</h1>
+            <button onclick="logout()" class="btn btn-primary">Logout</button>
 
             <p style="font-weight: 350; text-align: center; color: white;" >Let's check out some books that might catch your interest or even better, get started on a book already in mind... </p><br>
           

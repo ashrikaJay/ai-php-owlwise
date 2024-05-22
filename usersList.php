@@ -182,7 +182,8 @@ $conn->close();
       </div>
     </nav>
     <div class="container-fluid mb-4" style="background-color:black;">
-    <h1 class="hero-text text-center p-4" style="color:white;"><i class="fa regular fa-address-card" style="margin-right: 20px"></i>Our Customer List</h1>
+    
+    <h1 class="hero-text text-center p-5" style="color:white;"><i class="fa regular fa-address-card" style="margin-right: 20px"></i>Our Customer List</h1>
         <div id="table-container" style="background-color: black; ">
             <div id="table-wrapper" class="responsive">
             <table  id="emptable" class="table table-striped table-hover table-borderless" style="max-width: 1100px; ">
@@ -218,7 +219,11 @@ $conn->close();
 
         </div>
         </div>
-        <br><br><br><br>
+        <br>
+        <div style="display: flex; justify-content: center;">
+          <button onclick="logout()" class="btn btn-danger mt-3">Logout</button>
+        </div>
+        <br><br>
     </div>
     <br><br>
     <footer class="bg-dark text-white p-4">
@@ -283,6 +288,19 @@ $conn->close();
       window.addEventListener('resize', handleResize);
       
       handleResize();
+      
+      //logout when clicked
+      function logout() {
+          // Clear session data
+          sessionStorage.clear();
+
+          // Redirect to the login page
+          window.location.href = "login.php";
+
+          // Prevent back button navigation
+          history.pushState(null, null, 'login.php');
+        }
+
 
 
 
