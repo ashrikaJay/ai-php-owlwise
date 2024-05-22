@@ -426,6 +426,7 @@
     </button>
     </div>
    </div><br><br>
+   <!-- Footer -->
    <footer class="bg-dark text-white p-4">
      <div class="container">
        <div class="row justify-content-center" style="margin: auto;">
