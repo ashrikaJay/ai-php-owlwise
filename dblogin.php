@@ -49,6 +49,7 @@ if ($result->num_rows === 1) {
    
     if ($user['Password']===$pass) {
         //echo "Data inserted successfully";
+        $_SESSION['userloggedin']=true;
         header("Location: dashboard.php");
         exit();
     } else {
@@ -60,10 +61,23 @@ if ($result->num_rows === 1) {
 
 } else {
     // Username error
-    //header("Location: error.php");
     //echo("Invalid display... you're not suposed to get me!");
     header('Location:login.php?error-user');
     exit();
 }
+
+
+/*if($uname==true && $pass==true){
+    $_SESSION['userloggedin']=true;
+    header('Location:dashboard.php');
+    exit();
+}
+if($user['Email']===$uname && $user['Password']===$pass){
+    $_SESSION['userloggedin']=true;
+    header('Location:dashboard.php');
+    exit();
+}*/
+
+
 
 ?>

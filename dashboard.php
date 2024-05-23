@@ -2,13 +2,20 @@
 session_start();
 /*mine
 // Check if the user is logged in
-if (!isset($_SESSION['email'])) {
-    // Redirect to the login page
-    header("Location: login.php");
-    exit();
+
+if(!isset($_SESSION['userloggedin'])){
+  header('Location:login.php');
+  exit();
+
 }*/
 
+if (!isset($_SESSION['userloggedin']) || $_SESSION['userloggedin'] !== true) {
+    header('Location: login.php');
+    exit();
+}
+
 ?>
+
 <!doctype html>
 <html lang="en">
   <head>

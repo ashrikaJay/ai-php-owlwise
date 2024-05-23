@@ -209,23 +209,7 @@
             </div>
             <br>
             
-            <!--Password and Confirm Password-->
-            <div class="container">
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              <div class="input-group-text">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                </div>
-                <input type="password" class="form-control text-center" id="InputPassword" name="password" placeholder="Password" required>
-              </div>
-              <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <div class="input-group-text">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fa fa-check-circle"></i></span>
-                </div>
-                <input type="password" class="form-control text-center" id="InputConfirmPassword" name="confirmedPassword" placeholder="Confirm Password" required>
-              </div>
-            </div><br>
+            
 
     
             <!--First & Last names-->
@@ -268,30 +252,46 @@
 
 
             <!--Gender & Salary-->
-            <div class="row mb-3">
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <div class="col-md-5">
-                <div class="input-group-text">
+            <div class="container">
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <div class="input-group-text">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa-venus-mars"></i></span>
                   </div>
-                  <select class="form-select text-center" id="gender" name="gender" >
-                    <option value="">Select Gender</option>
+                  <select class="form-select" id="gender" name="gender" style="width: 78%; padding-left: 58px; color: #667379;">
+                    <option value="" style="color: #667379;">Select Gender</option>
                     <option value="m">Male</option>
                     <option value="f">Female</option>
                     <option value="o">Prefer not to say</option>
                   </select>
-                </div>
-              </div>
-              <div class="col-md-5">
-                <div class="mb-3 input-group-text">
+
+              </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <div class="input-group-text">
                   <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fa fa-dollar-sign"></i></span>
+                    <span class="input-group-text"><i class="fa fa-dollar-sign" style="margin-right: 8px;"></i></span>
                   </div>
-                 <input type="number" class="form-control text-center" step="0.01" id="salary" name="salary" placeholder="Salary" required>
-                </div>
+                  <input type="number" class="form-control text-center" step="0.01" id="salary" name="salary" placeholder="Salary" style="margin-right:10px; padding-left: 14px;" required>
+
               </div>
-            </div>
+            </div><br>
+
+            <!--Password and Confirm Password-->
+            <div class="container">
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <div class="input-group-text">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                </div>
+                <input type="password" class="form-control text-center" id="InputPassword" name="password" placeholder="Password" required>
+              </div>
+              <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <div class="input-group-text">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-check-circle"></i></span>
+                </div>
+                <input type="password" class="form-control text-center" id="InputConfirmPassword" name="confirmedPassword" placeholder="Confirm Password" required>
+              </div>
+            </div><br>
 
             <!--Form check and Register-->
             <div class="mb-3 form-check text-center">
