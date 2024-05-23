@@ -164,7 +164,7 @@ if (!isset($_SESSION['email'])) {
             <button onclick="logout()" class="btn btn-primary">Logout</button>
 
             <p style="font-weight: 350; text-align: center; color: white;" >Let's check out some books that might catch your interest or even better, get started on a book already in mind... </p><br>
-          
+            <p style="font-weight: 350; text-align: center; color: white;" >To be continued for now it's a demo... </p><br>
         </div>
         
       </div>
