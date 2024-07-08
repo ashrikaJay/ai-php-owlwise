@@ -175,11 +175,6 @@
             </li>
   
           </ul>
-          <form class="d-flex align-items-center search-form" role="search">
-            <input id="searchBar" class="form-control search-input" type="search" placeholder="Look up something?..." aria-label="Search" onfocus="startAnimation()">
-            <button class="btn btn-primary" type="submit" style="background-color:#0c617b;" >Search</button>
-          </form>
-          
         </div>
       </div>
     </nav>
@@ -264,40 +259,6 @@
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-      <script>
-        /*Search placeholder animation*/
-        document.addEventListener('DOMContentLoaded', function() {
-          var searchInput = document.getElementById('searchBar');
-          var placeholderTexts = ["Search for items here...", "Find what you need..."];
-          var currentIndex = 0;
-
-          function changePlaceholder() {
-            searchInput.setAttribute('placeholder', placeholderTexts[currentIndex]);
-            currentIndex = (currentIndex + 1) % placeholderTexts.length;
-          }
-
-          setInterval(changePlaceholder, 2000); // Change placeholder text every 2 seconds
-        });
-
-        //nav search resizing
-        function handleResize() {
-          const searchInput = document.querySelector('.search-input');
-
-          if (window.innerWidth <= 1200) {
-            searchInput.style.width = '100%';
-            searchInput.style.marginLeft = '0';
-          }else {
-            searchInput.style.width = '350px';
-            searchInput.style.marginLeft = '300px';
-          }
-        }
-
-        window.addEventListener('resize', handleResize);
-        
-        handleResize();
-
-        
-    </script>
     </div>
   </body>
 </html>

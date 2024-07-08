@@ -55,7 +55,7 @@
       }
 
       .search-input {
-        padding-left: 10px;
+        padding-left: 370px; /*initially 10px for searchBar*/
         width: 350px;      
       }
 
@@ -184,49 +184,7 @@
   <body style="background-color:#1f3b59">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <!-- Navigation elements-->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-       <a class="navbar-brand" href="#">
-        <img src="img/apple-touch-icon.png" alt="OwlWise Corp Logo" width="30" height="30" class="logo-to-brand">
-        OwlWise Inc.</a>
-        
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-         <ul class="nav nav-underline">
-            <li class="nav-item">
-             <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-            </li>
-            <li class="nav-item">
-             <a class="nav-link" href="login.php">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="register.php">Register</a>
-             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  About Us
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Our Story</a></li>
-                <li><a class="dropdown-item" href="#">Our Team</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Contact Us</a></li>
-              </ul>
-            </li>
-  
-          </ul>
-        
-          <form class="d-flex align-items-center search-form" role="search">
-            <input id="searchBar" class="form-control search-input" type="search" placeholder="Look up something?..." aria-label="Search" onfocus="startAnimation()">
-            <button class="btn btn-primary" type="submit" style="background-color:#0c617b;" >Search</button>
-          </form>
-          
-        </div>
-      </div>
-    </nav>
-    
+    <?php include_once ('nav-common.php'); ?>
 
 
     <!-- Intro-->

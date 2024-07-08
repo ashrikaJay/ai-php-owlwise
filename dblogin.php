@@ -33,23 +33,10 @@ $result = $stmt->get_result();
 if ($result->num_rows === 1) {
     // Fetch the user data
     $user = $result->fetch_assoc();
-
-    // Check if the provided password matches the stored password
-    /*if ($user['Password']===$pass) {
-        // Redirect to the desired page
-        header("Location: dashboard.php");
-        exit();
-    } else {
-        // Redirect to an error page or display an error message
-        //header("Location: error.php");
-        //echo("Invalid password. Please try again.");
-        
-        exit();
-    }*/
-   
     if ($user['Password']===$pass) {
         //echo "Data inserted successfully";
-        $_SESSION['userloggedin']=true;
+        $_SESSION['userloggedin']=$uname;
+
         header("Location: dashboard.php");
         exit();
     } else {

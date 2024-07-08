@@ -1,9 +1,8 @@
 <?php
 session_start();
 if(!isset($_SESSION['userloggedin'])){
-  header('Location:login.php');
+  header('Location: login.php');
   exit();
-
 }
 ?>
 
@@ -23,11 +22,6 @@ if(!isset($_SESSION['userloggedin'])){
 
     
     <style>
-    
-      body {
-        background: linear-gradient(to left, #113651,#1e608f,#113651);
-
-      }
 
       .logo-to-brand {
         border-radius: 50%;
@@ -84,29 +78,26 @@ if(!isset($_SESSION['userloggedin'])){
         color: #0c617b;
       }
 
-      
+      .dash-card:hover{
+        box-shadow: 0 0 10px rgba(44, 56, 150, 0.5);
+        transform: scale(1.02);
+      }
 
-      
+      .dash-card{
+        font-family: 'Courier New', Courier, monospace;
+        text-decoration: none;
+        transition: all 0.5s;
+      }
 
-      
-      
+      .app{
+        margin: 40px;
+      }
 
-    
+  
 
-    
-
-      
-      
-
-
-
-
-
-
-      
     </style>
   </head>
-  <body style="background-color:#1f3b59">
+  <body style="background-color:#8fbbe9;">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <!-- Navigation elements-->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -121,33 +112,18 @@ if(!isset($_SESSION['userloggedin'])){
        <div class="collapse navbar-collapse" id="navbarSupportedContent">
          <ul class="nav nav-underline">
             <li class="nav-item">
-             <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+             <a class="nav-link " aria-current="page" href="index.php">Home</a>
             </li>
+    
             <li class="nav-item">
-             <a class="nav-link" href="login.php">Login</a>
+              <a class="nav-link active" href="dashboard.php">Dashboard</a>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link" href="register.php">Register</a>
-             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  About Us
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Our Story</a></li>
-                <li><a class="dropdown-item" href="#">Our Team</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Contact Us</a></li>
-              </ul>
+             <a class="nav-link" href="logout.php">Logout</a>
             </li>
   
-          </ul>
-        
-          <form class="d-flex align-items-center search-form" role="search">
-            <input id="searchBar" class="form-control search-input" type="search" placeholder="Look up something?..." aria-label="Search" onfocus="startAnimation()">
-            <button class="btn btn-primary" type="submit" style="background-color:#0c617b;" >Search</button>
-          </form>
-          
+          </ul>    
         </div>
       </div>
     </nav>
@@ -161,8 +137,24 @@ if(!isset($_SESSION['userloggedin'])){
             <h1 class="hero-text" style="font-family: Poetsen One ,sans-serif; color:antiquewhite;">Welcome OwlWiser!</h1>
             <button onclick="logout()" class="btn btn-primary">Logout</button>
 
-            <p style="font-weight: 350; text-align: center; color: white;" >Let's check out some books that might catch your interest or even better, get started on a book already in mind... </p><br>
-            <p style="font-weight: 350; text-align: center; color: white;" >To be continued for now it's a demo... </p><br>
+        </div>
+
+        <div class="row">
+          <div class="app col-4">
+          <a class="dash-card card p3 rounded-5" href="notes/index.php"style="width: 18rem;">
+            <img src="img/dash/notes.webp" class="card-img-top" alt="...">
+              <h3 class="dash-text">Notes</h3>
+          </a>
+          </div>
+
+          <div class="app col-4">
+          <a class="dash-card card p3 rounded-5" href="notes/index.php"style="width: 18rem; padding-top: 20px; height: 20.5rem;">
+            <img src="img/dash/tasks.webp" class="card-img-top" alt="..."><br><br>
+              <h3 class="dash-text">Tasks</h3>
+          </a>
+          </div>
+
+
         </div>
         
       </div>
