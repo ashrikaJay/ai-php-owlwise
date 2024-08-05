@@ -93,62 +93,37 @@ if(!isset($_SESSION['userloggedin'])){
         margin: 40px;
       }
 
+      #logout{
+        color: #851609;
+      }
+
   
 
     </style>
   </head>
-  <body style="background-color:#8fbbe9;">
+  <body style="background-color:#568ec9">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <!-- Navigation elements-->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-       <a class="navbar-brand" href="#">
-        <img src="img/apple-touch-icon.png" alt="OwlWise Corp Logo" width="30" height="30" class="logo-to-brand">
-        OwlWise Inc.</a>
-        
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-         <ul class="nav nav-underline">
-            <li class="nav-item">
-             <a class="nav-link " aria-current="page" href="index.php">Home</a>
-            </li>
-    
-            <li class="nav-item">
-              <a class="nav-link active" href="dashboard.php">Dashboard</a>
-            </li>
-
-            <li class="nav-item">
-             <a class="nav-link" href="logout.php">Logout</a>
-            </li>
-  
-          </ul>    
-        </div>
-      </div>
-    </nav>
-    
-
+    <?php include_once 'nav-logged.php';?>
 
     <!-- Intro-->
     <div class="container-md text-center mt-5" style="max-width: 800px;">
       <div class="custom-shadow" >
         <div class="card-type-2">
             <h1 class="hero-text" style="font-family: Poetsen One ,sans-serif; color:antiquewhite;">Welcome OwlWiser!</h1>
-            <button onclick="logout()" class="btn btn-primary">Logout</button>
+            <!--<button onclick="logout()" class="btn btn-primary">Logout</button>-->
 
         </div>
 
         <div class="row">
           <div class="app col-4">
-          <a class="dash-card card p3 rounded-5" href="notes/index.php"style="width: 18rem;">
-            <img src="img/dash/notes.webp" class="card-img-top" alt="...">
+          <a class="dash-card card p3 rounded-5" href="notes/index.php"style="width: 18rem; height: 22rem;">
+            <img src="img/dash/notes.webp" class="card-img-top" alt="..." style="margin-bottom: 18px;">
               <h3 class="dash-text">Notes</h3>
           </a>
           </div>
 
           <div class="app col-4">
-          <a class="dash-card card p3 rounded-5" href="notes/index.php"style="width: 18rem; padding-top: 20px; height: 20.5rem;">
+          <a class="dash-card card p3 rounded-5" href="tasks/index.php"style="width: 18rem; padding-top: 40px; height: 22rem;">
             <img src="img/dash/tasks.webp" class="card-img-top" alt="..."><br><br>
               <h3 class="dash-text">Tasks</h3>
           </a>

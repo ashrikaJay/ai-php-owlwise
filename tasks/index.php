@@ -21,7 +21,7 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Notes</title>
+    <title>Tasks</title>
 
     <link rel="icon" type="image/png" href="img/apple-touch-icon.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -39,7 +39,8 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
     }
 
 
-    .btn.btn-primary:hover {
+    .btn.btn-primary:hover,
+    .btn.btn-success:hover {
         border-color: #0c4b6b;
         color: rgb(5, 5, 5);
 
@@ -49,6 +50,11 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
         background-color: #0c617b;
         border-color: #8fbbe9;
         color: white;
+    }
+
+    .btn.btn-success {
+        border-color: #8fbbe9;
+
     }
 
     .container {
@@ -105,52 +111,63 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
     <?php include_once '../nav-logged.php'; ?>
 
 
-
     <!-- Note input form -->
-    <div class="container-md text-center mt-5" style="max-width: 800px;">
+    <div class="container-md text-center mt-5" style="max-width: 1000px;">
+        <img src="../img/puzzle.webp" alt="puzzle representing a task" height="300px" width= "700px">
+        <br>
         <div class="custom-shadow">
             <div class="card-type-2">
                 <div>
-                    <h1 class="hero-text" style="font-family: Poetsen One ,sans-serif; color:#1f3b59;">What to keep in mind?
+                    <h1 class="hero-text" style="font-family: Poetsen One ,sans-serif; color:#1f3b59;">We got to
+                        achieve...
 
                     </h1>
 
 
                 </div>
 
-                <!-- Note adder -->
+                <!-- Task adder -->
                 <div class="container-md" style="padding: 20px; background-color: #568ec9;">
-                    <form action="dbnotes.php" method="POST">
+                    <form action="dbtasks.php" method="POST">
 
                         <div class="row">
 
-                            <div class="row col-md-4 p-4">
-                                <input type="text" onclick="hideAlertBox()" class="form-control" id="title" name="title"
-                                    placeholder="Title" required /><br>
+                            <div class="row col-md-3 p-4">
+                                <input type="text" onclick="hideAlertBox()" class="form-control" id="deadline"
+                                    name="deadline" placeholder="Deadline" required /><br>
                             </div>
-                            <div class="row col-md-6 p-4">
-                                <input type="text" class="form-control" id="description" name="description"
-                                    placeholder="Description" required>
+                            <div class="row col-md-5 p-4">
+                                <input type="text" class="form-control" id="taskName" name="taskName"
+                                    placeholder="Task Name" required>
                             </div>
-                            <div class="row col-md-2 p-4" style="margin-left: 30px;">
+                            <div class="row col-md-2 p-4" style="margin-left: 60px;">
                                 <button type="submit" class="btn btn-success"><i class="bi bi-plus-circle"
-                                        style="font-size: 20px;"></i></button>
+                                        style="font-size: 18px;"></i></button>
+                            </div>
+                            <div class="row col-md-2 p-4">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#searchModal">
+                                    <i class="bi bi-search" style="font-size: 18px;"></i>
+                                </button>
                             </div>
 
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#searchModal">
-                                <i class="bi bi-search" style="font-size: 20px;"></i>
-                            </button>
+                            <div class="row col-md-12 p-4">
+                                <input type="text" class="form-control" id="caption" name="caption"
+                                    placeholder="Caption" required>
+                            </div>
+
+
 
 
                             <?php 
                             if (isset($_GET['success'])) { 
-                                echo('<div id="alertbox" class="alert alert-success mt-1" role="alert" style="max-width: 350px;  position: relative; left: 50%; transform: translateX(-50%); border-radius: 15px;">
-                                  Note added to your list!
+                                echo('<div id="alertbox" class="alert alert-success mt-1" role="alert" style="max-width: 500px;  position: relative; left: 50%; transform: translateX(-50%); border-radius: 15px;">
+                                  Task added!
                                 </div>');
                               }
                           ?>
                         </div>
+
                     </form>
                     <!-- Modal -->
                     <div class="modal fade" id="searchModal" tabindex="-1" role="dialog"
@@ -180,73 +197,72 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
 
                 </div>
             </div>
-        </div><br><br>
+        </div><br>
+        <!-- Table for task info -->
         <table class="table table-info table-hover">
             <thead>
                 <tr>
+                    <th>Deadline</th>
+                    <th>TaskName</th>
+                    <th>Caption</th>
                     <th>Date Created</th>
-                    <th>Title</th>
-                    <th>Description</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-          // Connect to the MySQL database
-          $servername = "localhost";
-          $username = "root";
-          $password = "";
-          $dbname = "aiphp";
-          $email=$_SESSION['userloggedin'];
+         
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "aiphp";
+                $email=$_SESSION['userloggedin'];
 
-          $conn = new mysqli($servername, $username, $password, $dbname);
+                $conn = new mysqli($servername, $username, $password, $dbname);
 
-          // Check connection
-          if ($conn->connect_error) {
-              die("Connection failed: " . $conn->connect_error);
-          }
+                
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
 
-          // SQL query to select the desired columns from the "Employee" table
-          $sql = "SELECT id,createdDate,title,description FROM Note WHERE email = '$email' ORDER BY createdDate DESC";
+                $sql = "SELECT Deadline,TaskName,Caption,CreatedDate FROM Task WHERE email = '$email' ORDER BY Deadline";
 
-          //Check if a search request has been made
-          if(isset($_GET['search'])){
-            $search = $_GET['search'];
-            //returns all
-            if($search == ""){
-              $sql = "SELECT id,createdDate,title,description FROM Note WHERE email = '$email' ORDER BY createdDate DESC";
+                if(isset($_GET['search'])){
+                    $search = $_GET['search'];
+                    if($search == ""){
+                    $sql = "SELECT Deadline,TaskName,Caption,CreatedDate FROM Task WHERE email = '$email' ORDER BY Deadline";
 
-            }
-            $sql = "SELECT id,createdDate,title,description FROM Note WHERE email = '$email' AND title LIKE '%$search%' ORDER BY createdDate DESC";
-          }else{
-            $sql = "SELECT id,createdDate,title,description FROM Note WHERE email = '$email' ORDER BY createdDate DESC";
-          }
+                    }
+                    $sql = "SELECT Deadline,TaskName,Caption,CreatedDate FROM Task WHERE email = '$email' AND TaskName LIKE '%$search%' ORDER BY Deadline";
+                }else{
+                    $sql = "SELECT Deadline,TaskName,Caption,CreatedDate FROM Task WHERE email = '$email' ORDER BY Deadline";
+                }
 
 
-          // Execute the query
-          $result = $conn->query($sql);
+                $result = $conn->query($sql);
 
-          // Check if the query was successful
-          if ($result) {
-              // Fetch the rows
-              while ($row = $result->fetch_assoc()) {
-                  // Display the data in table rows
-                  echo "<tr>";
-                  echo "<td class='p-3'>" . $row["createdDate"] . "</td>";
-                  echo "<td class='p-3'>" . $row["title"] . "</td>";
-                  echo "<td class='p-3'>" . $row["description"] . "</td>";
-                  echo "<td class='p-3'> <a class='btn btn-outline-danger' href=" . "dbnotes.php?delid=" . $row["id"] . ">X</a> </td>";
-                  echo "</tr>";
-              }
-          } else {
-              echo "Error: " . $sql . "<br>" . $conn->error;
-          }
+                if ($result) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<tr>";
+                        echo "<td class='p-3'>" . $row["Deadline"] . "</td>";
+                        echo "<td class='p-3'>" . $row["TaskName"] . "</td>";
+                        echo "<td class='p-3'>" . $row["Caption"] . "</td>";
+                        echo "<td class='p-3'>" . $row["CreatedDate"] . "</td>";
+                        echo "<td class='p-3'> <a class='btn btn-outline-danger' href=" . "dbtasks.php?deltask=" . $row["TaskName"] . "&deldeadline=" . $row["Deadline"] . ">X</a> </td>";
+                        echo "</tr>";
+                    }
+                } else {
+                    echo "Error: " . $sql . "<br>" . $conn->error;
+                }
 
-          // Close the connection
-          $conn->close();
-          ?>
+                $conn->close();
+                ?>
             </tbody>
         </table>
+
+    </div>
+    <br><br>
+
     </div>
 
 

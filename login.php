@@ -33,6 +33,44 @@
          
       }
 
+      .navbar.navbar-expand-lg.bg-body-tertiary{
+        margin-bottom: 70px;
+      }
+      .search-container {
+        position: relative;
+        
+      }
+
+      .card {
+        width: 26rem;
+        background-color: #568ec9;
+        box-shadow: -10px 10px 8px 0 rgba(0, 0, 0, 0.2);
+      
+      }
+
+      .search-input {
+        padding-left: 670px;
+        width: 350px;
+      }
+
+      .navbar-brand {
+        font-family: "Poetsen One", sans-serif;
+      }
+
+      .navbar-nav .nav-link.active {
+        text-decoration: underline;
+        transform: rotateY('180deg');
+      }
+      .nav-underline .nav-link.active, .nav-underline .nav-link {
+        color: #767373;
+      }
+
+      .nav-underline .nav-link.active{
+        color: #0c617b;
+      }
+
+      /* Same */
+
 
       #InputLoginPassword, #InputUsername {
         border-radius: 6px;
@@ -91,46 +129,13 @@
       
       }
 
-      .card {
-        width: 26rem;
-        background-color: #568ec9;
-        box-shadow: -10px 10px 8px 0 rgba(0, 0, 0, 0.2);
-      
-      }
-      
       /*.bg-rounded {
         border-radius: 10px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
       }*/
       
-      .navbar.navbar-expand-lg.bg-body-tertiary{
-        margin-bottom: 70px;
-      }
-      .search-container {
-        position: relative;
-        
-      }
-
-      .search-input {
-        padding-left: 10px;
-        width: 350px;
-      }
-
-      .navbar-brand {
-        font-family: "Poetsen One", sans-serif;
-      }
-
-      .navbar-nav .nav-link.active {
-        text-decoration: underline;
-        transform: rotateY('180deg');
-      }
-      .nav-underline .nav-link.active, .nav-underline .nav-link {
-        color: #767373;
-      }
-
-      .nav-underline .nav-link.active{
-        color: #0c617b;
-      }
+      
+      
 
 
 
@@ -142,44 +147,7 @@
   <body style="background-color:#1f3b59">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <!-- Navigation elements-->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-       <a class="navbar-brand" href="#">
-        <img src="img/apple-touch-icon.png" alt="OwlWise Corp Logo" width="30" height="30" class="logo-to-brand">
-        OwlWise Inc.</a>
-        
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-         <ul class="nav nav-underline">
-            <li class="nav-item">
-             <a class="nav-link" aria-current="page" href="index.php">Home</a>
-            </li>
-            <li class="nav-item">
-             <a class="nav-link active" href="login.php">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="register.php">Register</a>
-             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  About Us
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Our Story</a></li>
-                <li><a class="dropdown-item" href="#">Our Team</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Contact Us</a></li>
-              </ul>
-            </li>
-  
-          </ul>
-        </div>
-      </div>
-    </nav>
-    
-
+    <?php include_once 'nav-common.php'; ?>
 
    <!-- intended page structure-->
    <div class="container-md text-center mt-5" style="max-width: 450px;">

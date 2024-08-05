@@ -50,15 +50,44 @@
 
     // Check if the delete request has been made
     if(isset($_GET['delid'])){
-        $delid = $_GET['delid'];
-        $conn = new mysqli($servername, $username, $password, $dbname);
-        $sql = "DELETE FROM note WHERE id = $delid";
+        $delid = intval($_GET['delid']); // Ensure delid is an integer
+        if ($delid > 0) { // Validate `delid`
+            $conn = new mysqli($servername, $username, $password, $dbname);
+    
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+    
+            // Prepare and execute the DELETE statement
+            $stmt = $conn->prepare("DELETE FROM Note WHERE id = ?");
+            $stmt->bind_param("i", $delid);
+    
+            if ($stmt->execute()) {
+                header('Location: index.php?deleted');
+                exit();
+            } else {
+                echo "Error: " . $stmt->error;
+            }
+    
+            // Close the statement and connection
+            $stmt->close();
+            $conn->close();
+        } else {
+            echo "Invalid ID.";
+        }
+    }
+
+
+
+        /*$conn = new mysqli($servername, $username, $password, $dbname);
+        $sql = "DELETE FROM Note WHERE id = $delid";
         if($conn->query($sql) === TRUE){
             header('Location:index.php?deleted');
             exit();
         };
         $conn->close();
-    }
+    }*/
 
     
     
