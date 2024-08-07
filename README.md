@@ -1,2 +1,2 @@
 # aiphp-b1
-This is the main repository for the AI php project
+A project done for the employees of a fictional company; OwlWise Inc., a company selling books for book lovers!
