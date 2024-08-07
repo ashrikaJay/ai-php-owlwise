@@ -6,6 +6,14 @@ if(!isset($_SESSION['userloggedin'])){
   exit();
 
 }
+
+if (isset($_GET['taskname']) && isset($_GET['cdate'])) {
+    $lname = $_GET['taskname']; //lname
+    $cdate = $_GET['cdate'];//cdate
+} else {
+    header('Location: ../tasks/index.php');
+    exit;
+}
 /*
 if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
     header('Location: login.php');
@@ -21,7 +29,7 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Tasks</title>
+    <title>Todo Items</title>
 
     <link rel="icon" type="image/png" href="../img/apple-touch-icon.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -112,35 +120,30 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
 
 
     <!-- Note input form -->
-    <div class="container-md text-center mt-5" style="max-width: 1000px;">
-        <img src="../img/puzzle.webp" alt="puzzle representing a task" height="300px" width="700px">
+    <div class="container-md mt-5" style="max-width: 700px;">
         <br>
         <div class="custom-shadow">
             <div class="card-type-2">
                 <div>
-                    <h1 class="hero-text" style="font-family: Poetsen One ,sans-serif; color:#1f3b59;">We got to
-                        achieve...
+                    <h1 class="hero-text" style="font-family: Poetsen One ,sans-serif; color:#1f3b59;">
+                        <div><?php echo ($lname); ?><br></div>
+                        <div><span class="text-secondary fs-4"><?php echo ($cdate); ?></span></div>
 
                     </h1>
 
 
                 </div>
 
-                <!-- Task adder -->
+                <!-- Item finder -->
                 <div class="container-md" style="padding: 20px; background-color: #568ec9;">
-                    <form action="dbtasks.php" method="POST">
+                    <form action="dbitems.php?taskname=<?php echo ($lname); ?>&cdate=<?php echo ($cdate); ?>" method="POST">
 
                         <div class="row">
-
-                            <div class="row col-md-3 p-4">
-                                <input type="text" onclick="hideAlertBox()" class="form-control" id="deadline"
-                                    name="deadline" placeholder="Deadline" required /><br>
+                            <div class="row col-md-8 p-4">
+                                <input onclick="hideAlertBox()" type="text" class="form-control" id="description" name="description"
+                                    placeholder="Description" required>
                             </div>
-                            <div class="row col-md-5 p-4">
-                                <input type="text" class="form-control" id="taskName" name="taskname"
-                                    placeholder="Task Name" required>
-                            </div>
-                            <div class="row col-md-2 p-4" style="margin-left: 60px;">
+                            <div class="row col-md-2 p-4" style="margin-left: 10px;">
                                 <button type="submit" class="btn btn-success"><i class="bi bi-plus-circle"
                                         style="font-size: 18px;"></i></button>
                             </div>
@@ -151,34 +154,18 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
                                 </button>
                             </div>
 
-                            <div class="row col-md-12 p-4">
-                                <input type="text" class="form-control" id="caption" name="caption"
-                                    placeholder="Caption" required>
-                            </div>
-
-
-
-
-                            <!--<?php 
-                            // if (isset($_GET['success'])) { 
-                            //     echo('<div id="alertbox" class="alert alert-success mt-1" role="alert" style="max-width: 500px;  position: relative; left: 50%; transform: translateX(-50%); border-radius: 15px;">
-                            //       Task added!
-                            //     </div>');
-                            //   }
-                            ?> -->
-                            <?php if (isset($_GET['insertedsuccess'])): ?>
-                            <div id="alertbox" class="alert alert-success mt-1" role="alert"
-                                style="max-width: 500px;  position: relative; left: 50%; transform: translateX(-50%); border-radius: 15px;">
-                                Task added!
-                            </div>
+                            <?php if (isset($_GET['success'])): ?>
+                                <div id="alertbox" class="alert alert-success mt-1" role="alert" style="max-width: 400px;  position: relative; left: 50%; transform: translateX(-50%); border-radius: 15px;">
+                                  Task item added!
+                                </div>
+                                <?php unset($_SESSION['success']); ?>
                             <?php endif; ?>
+
                             <?php if (isset($_GET['deleted'])): ?>
-                            <div id="alertbox" class="alert alert-danger mt-1" role="alert"
-                                style="max-width: 500px;  position: relative; left: 50%; transform: translateX(-50%); border-radius: 15px;">
-                                Task deleted!
-                            </div>
+                                <div id="alertbox" class="alert alert-danger mt-1" role="alert" style="max-width: 400px;  position: relative; left: 50%; transform: translateX(-50%); border-radius: 15px;">
+                                  Task item deleted!
+                                </div>
                             <?php endif; ?>
-
                         </div>
 
                     </form>
@@ -189,8 +176,10 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
                             <div class="modal-content">
 
                                 <div class="modal-body">
-                                    <form action="" method="GET">
+                                    <form action="index.php" method="GET">
                                         <div class="form-group">
+                                            <input type="hidden" name="taskname" value="<?php echo ($lname); ?>">
+                                            <input type="hidden" name="cdate" value="<?php echo ($cdate); ?>">
                                             <input type="text" name="search" class="form-control" id="searchInput"
                                                 placeholder="Spotlight Search..."><br>
 
@@ -212,16 +201,7 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
             </div>
         </div><br>
         <!-- Table for task info -->
-        <table class="table table-info table-hover">
-            <thead>
-                <tr>
-                    <th>Deadline</th>
-                    <th>TaskName</th>
-                    <th>Caption</th>
-                    <th>Date Created</th>
-                    <th></th>
-                </tr>
-            </thead>
+        <table class="table table-info table-hover" style="max-width: 400px; margin: auto; width: 70% !important;">
             <tbody>
                 <?php
          
@@ -238,32 +218,27 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
                     die("Connection failed: " . $conn->connect_error);
                 }
 
-                $sql = "SELECT Deadline,TaskName,Caption,CreatedDate FROM Task WHERE email = '$email' ORDER BY Deadline";
+                $sql = "SELECT ItemId, Description, Status FROM Item WHERE TaskName = '$lname';";
 
                 if(isset($_GET['search'])){
                     $search = $_GET['search'];
                     if($search == ""){
-                    $sql = "SELECT Deadline,TaskName,Caption,CreatedDate FROM Task WHERE email = '$email' ORDER BY Deadline";
+                    $sql = "SELECT ItemId, Description, Status FROM Item WHERE TaskName = '$lname'";
 
                     }
-                    $sql = "SELECT Deadline,TaskName,Caption,CreatedDate FROM Task WHERE email = '$email' AND TaskName LIKE '%$search%' ORDER BY Deadline";
+                    $sql = "SELECT ItemId, Description, Status FROM Item WHERE TaskName = '$lname' AND Description LIKE '%$search%'";
                 }else{
-                    $sql = "SELECT Deadline,TaskName,Caption,CreatedDate FROM Task WHERE email = '$email' ORDER BY Deadline";
+                    $sql = "SELECT ItemId, Description, Status FROM Item WHERE TaskName = '$lname'";
                 }
 
 
                 $result = $conn->query($sql);
-
                 if ($result) {
                     while ($row = $result->fetch_assoc()) {
-                        $lname = $row["TaskName"];
-                        $cdate = $row["Deadline"];//CreatedDate
                         echo "<tr>";
-                        echo "<td class='p-3'>" . $row["Deadline"] . "</td>";
-                        echo "<td class='p-3'><a href='../items/index.php?taskname=" . $lname . "&cdate=" . $cdate . "'style='text-decoration:none;color:#2c9c49'>" . $lname . "</a></td>";
-                        echo "<td class='p-3'>" . $row["Caption"] . "</td>";
-                        echo "<td class='p-3'>" . $row["CreatedDate"] . "</td>";
-                        echo "<td class='p-3'> <a class='btn btn-outline-danger' href=" . "dbtasks.php?deltask=" . $lname . "&deldeadline=" . $row["Deadline"] . ">X</a> </td>";
+                        echo "<td class='p-3'><input class='form-check-input me-1' type='checkbox' name='deadline' value='' id='firstCheckboxStretched'/></td>";
+                        echo "<td class='p-3'>" . $row["Description"] . "</td>";
+                        echo "<td class='p-3'> <a class='btn btn-outline-danger' href=" . "dbitems.php?delid=" . $row["ItemId"] . "&deltaskname=" . urlencode($lname) . "&cdate=" . urlencode($cdate) . "' class='btn btn-danger btn-sm float-end ms-1' onclick='confirmDelete()'>X</a> </td>";
                         echo "</tr>";
                     }
                 } else {
@@ -282,7 +257,7 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
 
 
 
-    <br><br><br><br>
+    <br><br><br>
     <!-- Footer -->
     <footer class="bg-dark text-white p-4">
         <div class="container">
@@ -342,6 +317,7 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
         var alertBox = document.getElementById("alertbox");
         alertBox.style.display = "none";
     }
+    
     </script>
 
 

@@ -20,10 +20,10 @@
     // Check if the form has been submitted
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Get the form data
-        $deadline = $_POST['deadline'];
-        $taskName = $_POST['taskname'];
-        $caption = $_POST['caption'];
-        $email = $_SESSION['userloggedin'];
+        $description = $_POST['description'];
+        $taskname = $_GET['taskname'];
+        $cdate=$_GET['cdate'];
+        
 
         $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -33,12 +33,12 @@
         }
 
         // Prepare and execute the SQL statement
-        $stmt = $conn->prepare("INSERT INTO Task(Deadline, TaskName, Caption, email) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssss", $deadline , $taskName, $caption, $email);
+        $stmt = $conn->prepare("INSERT INTO Item (Description,TaskName) VALUES (?, ?)");
+        $stmt->bind_param("ss",$description, $taskname);
 
         if ($stmt->execute()) {
             //echo "Data inserted successfully";
-            header("Location: index.php?insertedsuccess");
+            header("Location: index.php?taskname=" . urlencode($taskname) . "&cdate=" . urlencode($cdate) . "&success");
             exit();
         } else {
             echo "Error: " . $stmt->error;
@@ -50,9 +50,10 @@
     }
 
     // Check if the delete request has been made
-    if(isset($_GET['deltask']) && isset($_GET['deldeadline'])){
-        $deltask = $_GET['deltask'];
-        $deldeadline = $_GET['deldeadline'];
+    if(isset($_GET['delid']) && isset($_GET['deltaskname']) && isset($_GET['cdate'])){
+        $delid = $_GET['delid'];
+        $deltaskname = $_GET['deltaskname'];
+        $cdate = $_GET['cdate'];
 
         $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -61,15 +62,14 @@
             die("Connection failed: " . $conn->connect_error);
         }
 
-    
-
-        // Prepare and execute the DELETE statement
-        $stmt = $conn->prepare("DELETE FROM Task WHERE TaskName = ? AND Deadline = ?");
-        $stmt->bind_param("ss", $deltask, $deldeadline);
+        //Prepare and execute the DELETE statement
+        $stmt = $conn->prepare("DELETE FROM Item WHERE ItemId = ? AND TaskName = ?");
+        $stmt->bind_param("is", $delid, $deltaskname);
 
         if ($stmt->execute()) {
-            header('Location: index.php?deleted');
+            header("Location: index.php?taskname=" . urlencode($deltaskname) . "&cdate=" . urlencode($cdate) . "&deleted=true");
             exit();
+            
         } else {
             echo "Error: " . $stmt->error;
         }
@@ -78,19 +78,7 @@
         $stmt->close();
         $conn->close();
     } else {
-        echo "Invalid TaskRow.";
+        echo "Invalid Item in task list";
     }
 
-        /*$sql = "DELETE FROM Task WHERE TaskName = $deltask AND Deadline = $deldeadline";
-        if($conn->query($sql) === TRUE){
-            header('Location:index.php?deleted');
-            exit();
-        }else{
-            echo "Error deleting record: " . $conn->error;
-        }
-        $conn->close();
-    }*/
-
-    
-    
 ?>

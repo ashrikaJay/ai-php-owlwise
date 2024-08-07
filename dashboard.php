@@ -90,7 +90,7 @@ if(!isset($_SESSION['userloggedin'])){
       }
 
       .app{
-        margin: 40px;
+        margin: 60px;/*40px*/
       }
 
       #logout{
@@ -115,14 +115,14 @@ if(!isset($_SESSION['userloggedin'])){
         </div>
 
         <div class="row">
-          <div class="app col-4">
+          <div class="app col-3">
           <a class="dash-card card p3 rounded-5" href="notes/index.php"style="width: 18rem; height: 22rem;">
             <img src="img/dash/notes.webp" class="card-img-top" alt="..." style="margin-bottom: 18px;">
               <h3 class="dash-text">Notes</h3>
           </a>
           </div>
 
-          <div class="app col-4">
+          <div class="app col-3">
           <a class="dash-card card p3 rounded-5" href="tasks/index.php"style="width: 18rem; padding-top: 40px; height: 22rem;">
             <img src="img/dash/tasks.webp" class="card-img-top" alt="..."><br><br>
               <h3 class="dash-text">Tasks</h3>
