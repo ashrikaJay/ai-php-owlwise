@@ -10,139 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
-    <style>
-    
-      body {
-        background: linear-gradient(to left, #113651,#1e608f,#113651);
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
 
-      }
-
-      .logo-to-brand {
-        border-radius: 50%;
-      }
-     
-      .btn.btn-primary{
-        background-color: #0c617b;
-        border-color: #8fbbe9;
-        color: white;
-      }
-
-      .btn.btn-primary:hover {
-        border-color: #0c4b6b;
-        color: rgb(5, 5, 5);
-         
-      }
-
-      .navbar.navbar-expand-lg.bg-body-tertiary{
-        margin-bottom: 70px;
-      }
-      .search-container {
-        position: relative;
-        
-      }
-
-      .card {
-        width: 26rem;
-        background-color: #568ec9;
-        box-shadow: -10px 10px 8px 0 rgba(0, 0, 0, 0.2);
-      
-      }
-
-      .search-input {
-        padding-left: 670px;
-        width: 350px;
-      }
-
-      .navbar-brand {
-        font-family: "Poetsen One", sans-serif;
-      }
-
-      .navbar-nav .nav-link.active {
-        text-decoration: underline;
-        transform: rotateY('180deg');
-      }
-      .nav-underline .nav-link.active, .nav-underline .nav-link {
-        color: #767373;
-      }
-
-      .nav-underline .nav-link.active{
-        color: #0c617b;
-      }
-
-      /* Same */
-
-
-      #InputLoginPassword, #InputUsername {
-        border-radius: 6px;
-            
-      }
-
-      .input-group {
-        background-color: #8fbbe9;
-        border: none;
-        cursor: pointer;
-
-        border-radius: 10px;
-        margin-left: 10px;
-        margin-right: 10px;
-
-      }
-
-      .input-group i {
-        font-size: 1.25rem;
-
-      }
-        
-      .input-group input {
-        margin-left: 10px;
-        margin-top: 10px;
-        margin-bottom: 10px; /* Add a gap between the prepend and input field */  
-        margin-right: 10px;
-      }
-
-      .input-group-text i {
-        font-size: 1.25rem;
-      }
-
-      .input-group-text {
-        background-color: #8fbbe9;
-        border: none;
-        cursor: pointer;
-      }
-      
-      .container {
-        display: flex;
-        flex-wrap: wrap;
-      }
-      
-      .forgot-password {
-        margin-top: 10px;
-        margin-left: 100px;
-        color: #0c617b;
-        
-      }
-
-      .sign-up-option{
-        margin-top: 10px;
-        margin-left: 10px;
-        color: #0c617b;
-      
-      }
-
-      /*.bg-rounded {
-        border-radius: 10px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      }*/
-      
-      
-      
-
-
-
-      
-
-      
-    </style>
   </head>
   <body style="background-color:#1f3b59">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -222,11 +92,14 @@
           ?>
         
        </div> 
-      </div><br>
+      </div><br><br><br><br>
+
+      
 
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </div>
+    <?php include_once("footer.php"); ?>
   </body>
 </html>

@@ -1,0 +1,152 @@
+/* Navbar */
+.navbar-brand {
+    font-family: "Poetsen One", sans-serif;
+}
+
+.navbar-nav .nav-link.active {
+    text-decoration: underline;
+    transform: rotateY('180deg');
+}
+
+.nav-underline .nav-link.active,
+.nav-underline .nav-link {
+    color: #767373;
+}
+
+.nav-underline .nav-link.active {
+    color: #0c617b;
+}
+
+/* background */
+body {
+    background: linear-gradient(to left, #113651, #1e608f, #113651);
+
+}
+
+/* logo */
+.logo-to-brand {
+    border-radius: 50%;
+}
+
+/* submit buttons */
+.btn.btn-primary {
+    background-color: #0c617b;
+    border-color: #8fbbe9;
+    color: white;
+}
+
+.btn.btn-primary:hover {
+    border-color: #0c4b6b;
+    color: rgb(5, 5, 5);
+
+}
+
+/* other */
+.search-container {
+    position: relative;
+    
+  }
+
+.card {
+    width: 26rem;
+    background-color: #568ec9;
+    box-shadow: -10px 10px 8px 0 rgba(0, 0, 0, 0.2);
+  
+}
+
+/* .search-input {
+    padding-left: 670px;
+    width: 350px;
+} */
+
+/* id and form features */
+#InputEmail {
+    border-radius: 6px;
+  }
+
+#confirmCheck {
+    margin: auto;
+    display: block;
+}
+
+#InputLoginPassword, #InputUsername {
+    border-radius: 6px;
+        
+}
+
+.forgot-password {
+    margin-top: 10px;
+    margin-left: 100px;
+    color: #0c617b;
+    
+  }
+
+.sign-up-option{
+    margin-top: 10px;
+    margin-left: 10px;
+    color: #0c617b;
+  
+}
+
+/* checkbox */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.checkbox-container {
+    display: flex;
+    justify-content: center;
+}
+
+
+.input-group i,
+.input-group-prepend,
+.input-group-text i {
+  font-size: 1.25rem;
+}
+/* from register */
+
+
+/*side by side structure*/
+.input-group-prepend {
+    background-color: #8fbbe9;
+    border: none;
+    cursor: pointer;
+    /*margin-right: 10px;
+    border-radius: 10px;*/
+}
+
+.container label,
+.container input {
+   flex: 1 0 100px;
+   margin-right: 10px;
+}
+
+
+/*styling around date input element*/
+.input-group-text {
+    background-color: #8fbbe9;
+    border: none;
+    cursor: pointer;
+}
+
+.input-group input {
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* margin-right: 10px; */
+}
+
+.input-group {
+    background-color: #8fbbe9;
+    border: none;
+    cursor: pointer;
+
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+
+  

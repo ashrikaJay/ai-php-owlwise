@@ -71,11 +71,15 @@
       <button class="btn btn-primary" type="submit" style="background-color:#0c617b;" >Search</button>
       </form>-->
 
-      <form class="d-flex search-input" role="search">
-        <button class="btn btn-primary" type="button" onclick="redirectToLogin()"
+      <?php
+      if(basename($_SERVER['PHP_SELF']) !== 'login.php') {
+        echo '<form class="d-flex ms-auto">
+        <button id="loginShortcut" class="btn btn-primary" type="button" onclick="redirectToLogin()"
           style="background-color:#0c617b;">Login
         </button>
-      </form>
+      </form>';   
+      }
+      ?>
 
     </div>
   </div>
@@ -83,6 +87,6 @@
 
 <script>
 function redirectToLogin() {
-    window.location.href = "login.php";
+  window.location.href = "login.php";
 }
 </script>

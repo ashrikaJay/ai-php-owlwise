@@ -125,20 +125,23 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
         <div class="custom-shadow">
             <div class="card-type-2">
                 <div>
+                    <img src="../img/working.png" height="470px" width="460px" style="border-radius: 50%;margin-left: 80px;">
                     <h1 class="hero-text" style="font-family: Poetsen One ,sans-serif; color:#1f3b59;">
                         <div><?php echo ($lname); ?><br></div>
-                        <div><span class="text-secondary fs-4"><?php echo ($cdate); ?></span></div>
+                        <div><span class="text-secondary fs-4"><?php echo ($cdate); //cdate should be deadline?></span></div>
 
                     </h1>
+                    <br><br>
 
 
                 </div>
 
                 <!-- Item finder -->
-                <div class="container-md" style="padding: 20px; background-color: #568ec9;">
+                <div class="container-md" style="background-color: #568ec9;">
                     <form action="dbitems.php?taskname=<?php echo ($lname); ?>&cdate=<?php echo ($cdate); ?>" method="POST">
 
                         <div class="row">
+
                             <div class="row col-md-8 p-4">
                                 <input onclick="hideAlertBox()" type="text" class="form-control" id="description" name="description"
                                     placeholder="Description" required>
@@ -226,7 +229,7 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
                     $sql = "SELECT ItemId, Description, Status FROM Item WHERE TaskName = '$lname'";
 
                     }
-                    $sql = "SELECT ItemId, Description, Status FROM Item WHERE TaskName = '$lname' AND Description LIKE '%$search%'";
+                    $sql = "SELECT ItemId, Description, Status FROM Item WHERE TaskName = '$lname' AND Description LIKE '%$search%'";//has email instead of TaskName
                 }else{
                     $sql = "SELECT ItemId, Description, Status FROM Item WHERE TaskName = '$lname'";
                 }

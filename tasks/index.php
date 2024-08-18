@@ -45,17 +45,17 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
         color: rgb(5, 5, 5);
 
     }
-
-    .btn.btn-primary {
+/* undo if needed ok */
+    /* .btn.btn-primary {
         background-color: #0c617b;
         border-color: #8fbbe9;
         color: white;
-    }
+    } */
 
-    .btn.btn-success {
+    /* .btn.btn-success {
         border-color: #8fbbe9;
 
-    }
+    } */
 
     .container {
         display: flex;
@@ -75,7 +75,7 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
     }
 
     .search-input {
-        padding-left: 10px;
+        margin-right: 300px;
         width: 350px;
     }
 
@@ -100,6 +100,7 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
     #logout {
         color: #851609;
     }
+
     </style>
 </head>
 
@@ -113,7 +114,7 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
 
     <!-- Note input form -->
     <div class="container-md text-center mt-5" style="max-width: 1000px;">
-        <img src="../img/puzzle.webp" alt="puzzle representing a task" height="300px" width="700px">
+        <img src="../img/puzzle.webp" alt="puzzle representing a task" height="300px" width="700px" style="border-radius: 50%;">
         <br>
         <div class="custom-shadow">
             <div class="card-type-2">
@@ -258,9 +259,9 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
                     while ($row = $result->fetch_assoc()) {
                         $lname = $row["TaskName"];
                         $cdate = $row["Deadline"];//CreatedDate
-                        echo "<tr>";
+                        echo "<tr>";//Can do this using list group
                         echo "<td class='p-3'>" . $row["Deadline"] . "</td>";
-                        echo "<td class='p-3'><a href='../items/index.php?taskname=" . $lname . "&cdate=" . $cdate . "'style='text-decoration:none;color:#2c9c49'>" . $lname . "</a></td>";
+                        echo "<td class='p-3'><a href='../items/index.php?taskname=" . $lname . "&cdate=" . $cdate . "'style='text-decoration:none; color:#2c9c49;'>" . $lname . "</a></td>";
                         echo "<td class='p-3'>" . $row["Caption"] . "</td>";
                         echo "<td class='p-3'>" . $row["CreatedDate"] . "</td>";
                         echo "<td class='p-3'> <a class='btn btn-outline-danger' href=" . "dbtasks.php?deltask=" . $lname . "&deldeadline=" . $row["Deadline"] . ">X</a> </td>";

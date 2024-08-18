@@ -12,140 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
-    <style>
-    body {
-      background: linear-gradient(to left, #113651, #1e608f, #113651);
-
-    }
-
-    .logo-to-brand {
-      border-radius: 50%;
-    }
-
-    .btn.btn-primary {
-      background-color: #0c617b;
-      border-color: #8fbbe9;
-      color: white;
-    }
-
-    .btn.btn-primary:hover {
-      border-color: #0c4b6b;
-      color: rgb(5, 5, 5);
-
-    }
-
-    .navbar.navbar-expand-lg.bg-body-tertiary {
-      margin-bottom: 70px;
-    }
-
-    .search-container {
-      position: relative;
-    }
-
-    .card {
-      width: 26rem;
-      background-color: #568ec9;
-      box-shadow: -10px 10px 8px 0 rgba(0, 0, 0, 0.2);
-
-    }
-
-    .search-input {
-      padding-left: 368px; /* login button on the right adjustment */
-      width: 350px;
-
-    }
-
-    .navbar-brand {
-      font-family: "Poetsen One", sans-serif;
-    }
-
-    .navbar-nav .nav-link.active {
-      text-decoration: underline;
-      transform: rotateY('180deg');
-    }
-
-    .nav-underline .nav-link.active,
-    .nav-underline .nav-link {
-      color: #767373;
-    }
-
-    .nav-underline .nav-link.active {
-      color: #0c617b;
-    }
-
-
-
-    /*side by side structure*/
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    .input-group-prepend {
-      background-color: #8fbbe9;
-      border: none;
-      cursor: pointer;
-
-      /*margin-right: 10px;
-      border-radius: 10px;*/
-    }
-
-    /* for the longest input element*/
-    .input-group {
-      background-color: #8fbbe9;
-      border: none;
-      cursor: pointer;
-
-      border-radius: 10px;
-      margin-left: 10px;
-      margin-right: 10px;
-
-    }
-
-    .input-group i,
-    .input-group-prepend,
-    .input-group-text i {
-      font-size: 1.25rem;
-    }
-
-    .input-group input {
-      margin-left: 10px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      /* Add a gap between the prepend and input field */
-    }
-
-    /*styling around date input element*/
-
-    .input-group-text {
-      background-color: #8fbbe9;
-      border: none;
-      cursor: pointer;
-    }
-
-    /*side by side elements*/
-    .container label,
-    .container input {
-      flex: 1 0 100px;
-      margin-right: 10px;
-    }
-
-    #InputEmail {
-      border-radius: 6px;
-    }
-
-    #confirmCheck {
-      margin: auto;
-      /* Center the checkbox horizontally */
-      display: block;
-      /*Ensure it takes up the full width */
-    }
-
-    .checkbox-container {
-      display: flex;
-      justify-content: center;
-    }
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body style="background-color:#1f3b59">
@@ -156,7 +24,7 @@
     <?php include_once 'nav-common.php'; ?>
 
     <!-- intended page structure-->
-    <div class="container-md text-center mt-5" style="max-width: 600px;">
+    <div class="container-md text-center mt-5" style="max-width: 700px;">
 
         <div class="card" style="width: 40rem; background-color: #568ec9 ;"><br>
             <h2 class="mb-4 fw-light " style="font-family: 'Segoe UI', sans-serif; color:#1f3b59">Let's get you
@@ -302,9 +170,10 @@
         </div>
     </div><br>
 
-    <br><br><br>
-
+    <br><br>
     </div>
+
+    <?php include_once("footer.php"); ?>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
@@ -321,7 +190,7 @@
         dateInput.setAttribute('placeholder', 'Tell us your Birthday');
     });
 
-    // Search placeholder animation
+    // Search placeholder animation -- not activated
     document.addEventListener('DOMContentLoaded', function() {
         var searchInput = document.getElementById('searchBar');
         var placeholderTexts = ["Search for items here...", "Find what you need..."];
@@ -334,23 +203,6 @@
 
         setInterval(changePlaceholder, 2000); // Change placeholder text every 2 seconds
     });
-
-    //nav search resizing
-    function handleResize() {
-        const searchInput = document.querySelector('.search-input');
-
-        if (window.innerWidth <= 1200) {
-            searchInput.style.width = '100%';
-            searchInput.style.marginLeft = '0';
-        } else {
-            searchInput.style.width = '350px';
-            searchInput.style.marginLeft = '300px';
-        }
-    }
-
-    window.addEventListener('resize', handleResize);
-
-    handleResize();
 
     //alertbox disappearance
     function hideAlertBox() {
