@@ -25,7 +25,6 @@
 
     <!-- intended page structure-->
     <div class="container-md text-center mt-5" style="max-width: 700px;">
-
         <div class="card" style="width: 40rem; background-color: #568ec9 ;"><br>
             <h2 class="mb-4 fw-light " style="font-family: 'Segoe UI', sans-serif; color:#1f3b59">Let's get you
                 registered!</h2>
@@ -44,9 +43,6 @@
                     </div>
                 </div>
                 <br>
-
-
-
 
                 <!--First & Last names-->
                 <div class="container">
@@ -153,19 +149,17 @@
 
                     <button type="submit" class="btn btn-primary" style="background-color: #0c617b;">Register</button>
                 </div>
-
             </form>
             <!--<div class="alert alert-danger" role="alert">
           <?php //echo isset($errorMessage) ? $errorMessage : ''; ?>
           </div>-->
 
-            <?php 
+          <?php 
           if (isset($_GET['error'])) { 
               echo('<div id="alertbox" class="alert alert-danger mt-1" role="alert" style="max-width: 350px;  position: relative; left: 50%; transform: translateX(-50%); border-radius: 15px;">
                 User already exists with this email!
               </div>');
-            }
-          
+          }
           ?>
         </div>
     </div><br>
