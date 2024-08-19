@@ -17,125 +17,19 @@
 
 
     <style>
-    .container {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .hero-text {
-        font-size: 3rem;
-        font-weight: 300;
-        text-align: center;
-        margin-top: 5vh;
-
-    }
-
-    .search-container {
-        position: relative;
-    }
-
-    .search-input {
-        padding-left: 370px;
-        /*initially 10px for searchBar*/
-        width: 350px;
-    }
-    
-    .carousel-item img {
-        width: 100%;
-        height: 650px;
-        /* Set the desired height for the images */
-        object-fit: cover;
-        /* Ensure the images maintain aspect ratio and cover the carousel item */
-    }
-
-    .card-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-
-    }
-
     .card {
         width: 18rem;
         transition: transform 0.3s;
         margin-right: 20px;
         margin-bottom: 50px;
+        background-color: #fff;
 
     }
 
-    .card:last-child {
-        margin-right: 0;
-    }
-
-    .card:hover {
-        /*clip-path: circle(100%);*/
-        transform: scale(1.05);
-
-    }
-
-    .card-type-2 {
-        padding: 1rem;
-        border-radius: 8px;
-        background-color: #568ec9;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    }
-
-    .custom-shadow {
-        position: relative;
-        padding: 3rem;
-        margin-bottom: 2rem;
-        border-radius: 0.5rem;
-        background-color: #074358;
-        box-shadow: 0 4px 20px rgba(8, 8, 9, 0.8);
-    }
-
-    .card {
-        width: 18rem;
-        height: 100%;
-    }
-
-    .card-img-top {
-        object-fit: cover;
-    }
-
-    #author-event {
-        width: 110px;
-        height: 110px;
-        margin-top: 10px;
-        margin-left: 10px;
-        margin-bottom: 30px;
-    }
-
-
-    .row.g-0,
-    #services-section {
-        opacity: 0;
-        transform: translateY(20px);
-        animation: none;
-    }
-
-    .row.g-0.visible,
-    #services-section.visible {
-        opacity: 1;
-        transform: translateY(0);
-        animation: fadeIn 5s forwards;
-    }
-
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    .img-shift-right {
-        margin-left: 50px;
-    }
+    /* .search-input {
+        padding-left: 370px;
+        width: 350px;
+    } */
 
     /* #loginShortcut{
         margin-left: 100px;

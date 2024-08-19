@@ -23,6 +23,12 @@ body {
 
 }
 
+/* for the dashboard and all */
+.special-background {
+    background: #568ec9 !important; 
+
+}
+
 /* logo */
 .logo-to-brand {
     border-radius: 50%;
@@ -49,7 +55,7 @@ body {
 
 .card {
     width: 26rem;
-    background-color: #568ec9;
+    background-color: #ffffff;
     box-shadow: -10px 10px 8px 0 rgba(0, 0, 0, 0.2);
   
 }
@@ -86,6 +92,29 @@ body {
     margin-left: 10px;
     color: #0c617b;
   
+}
+
+#author-event {
+    width: 110px;
+    height: 110px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 30px;
+}
+
+
+.row.g-0,
+#services-section {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: none;
+}
+
+.row.g-0.visible,
+#services-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeIn 5s forwards;
 }
 
 /* checkbox */
@@ -146,4 +175,86 @@ body {
 
 }
 
-  
+/* dashboard */
+.dash-card:hover{
+    box-shadow: 0 0 10px rgba(44, 56, 150, 0.5);
+    transform: scale(1.02);
+}
+
+.dash-card{
+    font-family: 'Courier New', Courier, monospace;
+    text-decoration: none;
+    transition: all 0.5s;
+}
+
+.app{
+    margin: 60px;
+}
+
+.hero-text{
+    font-size: 3rem;
+    font-weight: 300;
+    text-align: center;
+    margin-top: 5vh;
+
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.custom-shadow {
+    position: relative;
+    padding: 3rem;
+    margin-bottom: 2rem;
+    border-radius: 0.5rem;
+    background-color: #074358;
+    box-shadow: 0 4px 20px rgba(8, 8, 9, 0.8);
+}
+
+.card-img-top {
+    object-fit: cover;
+}
+
+.img-shift-right {
+    margin-left: 50px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.card:last-child {
+    margin-right: 0;
+}
+
+.card:hover {
+    /*clip-path: circle(100%);*/
+    transform: scale(1.05);
+
+}
+
+.card-type-2 {
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: #568ec9;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 650px;
+    object-fit: cover;
+}

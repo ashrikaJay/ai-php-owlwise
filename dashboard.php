@@ -19,89 +19,10 @@ if(!isset($_SESSION['userloggedin'])){
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
 
-    
-    <style>
-
-      .logo-to-brand {
-        border-radius: 50%;
-      }
-      
-
-      .btn.btn-primary:hover {
-        border-color: #0c4b6b;
-        color: rgb(5, 5, 5);
-         
-      }
-
-      .btn.btn-primary{
-        background-color: #0c617b;
-        border-color: #8fbbe9;
-        color: white;
-      }
-        
-      .container {
-        display: flex;
-        flex-wrap: wrap;
-      }
-    
-      .hero-text {
-        font-size: 3rem;
-        font-weight: 300;
-        text-align: center;
-        margin-top: 5vh;      
-        
-      }
-
-      .search-container {
-        position: relative;
-      }
-
-      .search-input {
-        padding-left: 10px;
-        width: 350px;      
-      }
-
-      .navbar-brand {
-        font-family: "Poetsen One", sans-serif;
-      }
-
-      .navbar-nav .nav-link.active {
-        text-decoration: underline;
-        transform: rotateY('180deg');
-      }
-      .nav-underline .nav-link.active, .nav-underline .nav-link {
-        color: #767373;
-      }
-
-      .nav-underline .nav-link.active{
-        color: #0c617b;
-      }
-
-      .dash-card:hover{
-        box-shadow: 0 0 10px rgba(44, 56, 150, 0.5);
-        transform: scale(1.02);
-      }
-
-      .dash-card{
-        font-family: 'Courier New', Courier, monospace;
-        text-decoration: none;
-        transition: all 0.5s;
-      }
-
-      .app{
-        margin: 60px;/*40px*/
-      }
-
-      #logout{
-        color: #851609;
-      }
-
-  
-
-    </style>
   </head>
-  <body style="background-color:#568ec9">
+  <body class="special-background">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <?php include_once 'nav-logged.php';?>
 
@@ -135,42 +56,9 @@ if(!isset($_SESSION['userloggedin'])){
       </div>
     </div><br><br>
 
-    
-   
-
-    
    <!-- Footer -->
-   <footer class="bg-dark text-white p-4">
-     <div class="container">
-       <div class="row justify-content-center" style="margin: auto;">
-         <div class="col-md-12 text-center">
-           <div class="mb-4">
-             <a href="#" class="text-white me-4">
-               <i class="bi bi-facebook"></i>
-             </a>
-             <a href="#" class="text-white me-4">
-               <i class="bi bi-tiktok"></i>
-             </a>
-             <a href="#" class="text-white me-4">
-               <i class="bi bi-instagram"></i>
-             </a>
-             <a href="#" class="text-white me-4">
-               <i class="fab fa-linkedin-in"></i>
-             </a>
-           </div>
-           <p class="mb-0">&copy; 2024 OwlWise Inc. All rights reserved.</p>
-         </div>
-       </div>
-     </div>
-    </footer>
-
-    
-
-
-
-
-    
-
+    <?php include_once "footer.php";?>
+   
    <!--JavaScript *** update files-->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
@@ -189,23 +77,6 @@ if(!isset($_SESSION['userloggedin'])){
 
         setInterval(changePlaceholder, 2000); // Change placeholder text every 2 seconds
       });
-
-      //nav search resizing
-      function handleResize() {
-        const searchInput = document.querySelector('.search-input');
-
-        if (window.innerWidth <= 1200) {
-          searchInput.style.width = '100%';
-          searchInput.style.marginLeft = '0';
-        }else {
-          searchInput.style.width = '350px';
-          searchInput.style.marginLeft = '300px';
-        }
-      }
-
-      window.addEventListener('resize', handleResize);
-      
-      handleResize();
 
       //scrolling up animation
       window.addEventListener('scroll', function() {
@@ -236,13 +107,6 @@ if(!isset($_SESSION['userloggedin'])){
           // Prevent back button navigation
           history.pushState(null, null, 'login.php');
         }
-
-
-
-    
-
     </script>
-    
-    
   </body>
 </html>

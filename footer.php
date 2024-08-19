@@ -17,7 +17,7 @@
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                     </div>
-                    <p class="mb-0">&copy; 2024 OwlWise Inc. All rights reserved.</p>
+                    <p class="mb-0">&copy; 2024 OwlWise Inc. All rights reserved. &nbsp;| &nbsp;Authored by <em><b>Ashrika Jay</b></em></p>
                 </div>
             </div>
         </div>

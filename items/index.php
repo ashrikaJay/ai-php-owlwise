@@ -10,9 +10,19 @@ if(!isset($_SESSION['userloggedin'])){
 if (isset($_GET['taskname']) && isset($_GET['cdate'])) {
     $lname = $_GET['taskname']; //lname
     $cdate = $_GET['cdate'];//cdate
+   
 } else {
+    if (isset($_GET['editid'])) {
+        $editid = $_GET['editid'];
+        $edittaskname = $_GET['edittaskname'];
+        $description = urldecode($_GET['description']);
+        ?>
+
+<?php
+    }else{
     header('Location: ../tasks/index.php');
     exit;
+    }
 }
 /*
 if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
@@ -39,79 +49,11 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../style.css">
 
-
-    <style>
-    .logo-to-brand {
-        border-radius: 50%;
-    }
-
-
-    .btn.btn-primary:hover,
-    .btn.btn-success:hover {
-        border-color: #0c4b6b;
-        color: rgb(5, 5, 5);
-
-    }
-
-    .btn.btn-primary {
-        background-color: #0c617b;
-        border-color: #8fbbe9;
-        color: white;
-    }
-
-    .btn.btn-success {
-        border-color: #8fbbe9;
-
-    }
-
-    .container {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .hero-text {
-        font-size: 3rem;
-        font-weight: 300;
-        text-align: center;
-        margin-top: 5vh;
-
-    }
-
-    .search-container {
-        position: relative;
-    }
-
-    .search-input {
-        padding-left: 10px;
-        width: 350px;
-    }
-
-    .navbar-brand {
-        font-family: "Poetsen One", sans-serif;
-    }
-
-    .navbar-nav .nav-link.active {
-        text-decoration: underline;
-        transform: rotateY('180deg');
-    }
-
-    .nav-underline .nav-link.active,
-    .nav-underline .nav-link {
-        color: #767373;
-    }
-
-    .nav-underline .nav-link.active {
-        color: #0c617b;
-    }
-
-    #logout {
-        color: #851609;
-    }
-    </style>
 </head>
 
-<body style="background-color: #568ec9;">
+<body class="special-background">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
@@ -124,13 +66,20 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
         <br>
         <div class="custom-shadow">
             <div class="card-type-2">
-                <div>
-                    <img src="../img/working.png" height="470px" width="460px" style="border-radius: 50%;margin-left: 80px;">
-                    <h1 class="hero-text" style="font-family: Poetsen One ,sans-serif; color:#1f3b59;">
-                        <div><?php echo ($lname); ?><br></div>
-                        <div><span class="text-secondary fs-4"><?php echo ($cdate); //cdate should be deadline?></span></div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="../img/working.png" height="470px" width="460px"
+                            style="border-radius: 50%;margin-left: 80px;">
+                    </div>
+                    <div class="col-md-6">
+                        <h1 class="hero-text" style="font-family: Poetsen One ,sans-serif; color:#1f3b59;">
+                            <div><?php echo ($lname); ?><br></div>
+                            <div><span
+                                    class="text-secondary fs-4"><?php echo ($cdate); //cdate should be deadline?></span>
+                            </div>
 
-                    </h1>
+                        </h1>
+                    </div>
                     <br><br>
 
 
@@ -138,15 +87,17 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
 
                 <!-- Item finder -->
                 <div class="container-md" style="background-color: #568ec9;">
-                    <form action="dbitems.php?taskname=<?php echo ($lname); ?>&cdate=<?php echo ($cdate); ?>" method="POST">
+                    <form action="dbitems.php?taskname=<?php echo ($lname); ?>&cdate=<?php echo ($cdate); ?>"
+                        method="POST">
 
                         <div class="row">
+                            <!-- Input element and Add/Search button -->
 
                             <div class="row col-md-8 p-4">
-                                <input onclick="hideAlertBox()" type="text" class="form-control" id="description" name="description"
-                                    placeholder="Description" required>
+                                <input onclick="hideAlertBox()" type="text" class="form-control" id="description"
+                                    name="description" placeholder="Description" required>
                             </div>
-                            <div class="row col-md-2 p-4" style="margin-left: 10px;">
+                            <div class="row col-md-2 p-4" style="margin-left: 60px;">
                                 <button type="submit" class="btn btn-success"><i class="bi bi-plus-circle"
                                         style="font-size: 18px;"></i></button>
                             </div>
@@ -157,17 +108,20 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
                                 </button>
                             </div>
 
+                            <!-- Alert box -->
                             <?php if (isset($_GET['success'])): ?>
-                                <div id="alertbox" class="alert alert-success mt-1" role="alert" style="max-width: 400px;  position: relative; left: 50%; transform: translateX(-50%); border-radius: 15px;">
-                                  Task item added!
-                                </div>
-                                <?php unset($_SESSION['success']); ?>
+                            <div id="alertbox" class="alert alert-success mt-1" role="alert"
+                                style="max-width: 400px;  position: relative; left: 50%; transform: translateX(-50%); border-radius: 15px;">
+                                Task item added!
+                            </div>
+                            <?php unset($_SESSION['success']); ?>
                             <?php endif; ?>
 
                             <?php if (isset($_GET['deleted'])): ?>
-                                <div id="alertbox" class="alert alert-danger mt-1" role="alert" style="max-width: 400px;  position: relative; left: 50%; transform: translateX(-50%); border-radius: 15px;">
-                                  Task item deleted!
-                                </div>
+                            <div id="alertbox" class="alert alert-danger mt-1" role="alert"
+                                style="max-width: 400px;  position: relative; left: 50%; transform: translateX(-50%); border-radius: 15px;">
+                                Task item deleted!
+                            </div>
                             <?php endif; ?>
                         </div>
 
@@ -202,9 +156,9 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
 
                 </div>
             </div>
-        </div><br>
+        </div>
         <!-- Table for task info -->
-        <table class="table table-info table-hover" style="max-width: 400px; margin: auto; width: 70% !important;">
+        <table class="table table-info table-hover" style="max-width: 600px; margin: auto;">
             <tbody>
                 <?php
          
@@ -241,7 +195,18 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
                         echo "<tr>";
                         echo "<td class='p-3'><input class='form-check-input me-1' type='checkbox' name='deadline' value='' id='firstCheckboxStretched'/></td>";
                         echo "<td class='p-3'>" . $row["Description"] . "</td>";
-                        echo "<td class='p-3'> <a class='btn btn-outline-danger' href=" . "dbitems.php?delid=" . $row["ItemId"] . "&deltaskname=" . urlencode($lname) . "&cdate=" . urlencode($cdate) . "' class='btn btn-danger btn-sm float-end ms-1' onclick='confirmDelete()'>X</a> </td>";
+                        echo "<td class='p-3'>
+                         <a class='btn btn-primary editBtn' 
+                            data-id='" . $row["ItemId"] . "' 
+                            data-description='" . htmlspecialchars($row["Description"]) . "' 
+                            data-taskname='" . htmlspecialchars($lname) . "' 
+                            data-cdate='" . htmlspecialchars($cdate) . "' 
+                            data-bs-toggle='modal' 
+                            data-bs-target='#editModal'>
+                            <i class='bi bi-pencil-square'></i></a>
+
+                        <a class='btn btn-danger' href=" . "dbitems.php?delid=" . $row["ItemId"] . "&deltaskname=" . urlencode($lname) . "&cdate=" . urlencode($cdate) . "' class='btn btn-danger btn-sm float-end ms-1'>
+                        <i class" . "='bi bi-trash'></i></a> </td>";
                         echo "</tr>";
                     }
                 } else {
@@ -252,39 +217,40 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
                 ?>
             </tbody>
         </table>
-
     </div>
-    <br><br>
-
-    </div>
-
-
-
-    <br><br><br>
-    <!-- Footer -->
-    <footer class="bg-dark text-white p-4">
-        <div class="container">
-            <div class="row justify-content-center" style="margin: auto;">
-                <div class="col-md-12 text-center">
-                    <div class="mb-4">
-                        <a href="#" class="text-white me-4">
-                            <i class="bi bi-facebook"></i>
-                        </a>
-                        <a href="#" class="text-white me-4">
-                            <i class="bi bi-tiktok"></i>
-                        </a>
-                        <a href="#" class="text-white me-4">
-                            <i class="bi bi-instagram"></i>
-                        </a>
-                        <a href="#" class="text-white me-4">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
-                    <p class="mb-0">&copy; 2024 OwlWise Inc. All rights reserved.</p>
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit Description</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                <form id="editForm" action="dbitems.php" method="POST">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            
+                            <input type="text" class="form-control" id="editDescription" name="description" required>
+                            <input type="hidden" id="editId" name="editid">
+                            <input type="hidden" id="editTaskName" name="edittaskname">
+                            <input type="hidden" id="editCdate" name="cdate">
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dismiss</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
             </div>
         </div>
-    </footer>
+    </div>
+
+
+    <br><br>
+
+    <!-- Footer -->
+    <?php include_once("../footer.php"); ?>
 
     <!--JavaScript-->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -320,7 +286,27 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
         var alertBox = document.getElementById("alertbox");
         alertBox.style.display = "none";
     }
-    
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var editModal = document.getElementById('editModal');
+        editModal.addEventListener('show.bs.modal', function (event) {
+            var button = event.relatedTarget;
+            var itemId = button.getAttribute('data-id');
+            var description = button.getAttribute('data-description');
+            var taskName = button.getAttribute('data-taskname');
+            var cdate = button.getAttribute('data-cdate');
+
+            var modal = editModal.querySelector('.modal-body #editDescription');
+            var idField = editModal.querySelector('#editId');
+            var taskNameField = editModal.querySelector('#editTaskName');
+            var cdateField = editModal.querySelector('#editCdate');
+
+            modal.value = description;
+            idField.value = itemId;
+            taskNameField.value = taskName;
+            cdateField.value = cdate;
+        });
+    });
     </script>
 
 
