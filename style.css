@@ -47,24 +47,6 @@ body {
 
 }
 
-/* other */
-.search-container {
-    position: relative;
-    
-}
-
-.card {
-    width: 26rem;
-    background-color: #ffffff;
-    box-shadow: -10px 10px 8px 0 rgba(0, 0, 0, 0.2);
-  
-}
-
-/* .search-input {
-    padding-left: 670px;
-    width: 350px;
-} */
-
 /* id and form features */
 #InputEmail {
     border-radius: 6px;
@@ -258,3 +240,22 @@ body {
     height: 650px;
     object-fit: cover;
 }
+
+/* other */
+.search-container {
+    position: relative;
+    
+}
+
+.card {
+    width: 26rem;
+    background-color: #ffffff;
+    box-shadow: -10px 10px 8px 0 rgba(0, 0, 0, 0.2);
+  
+}
+
+/* .search-input {
+    padding-left: 670px;
+    width: 350px;
+} */
+
