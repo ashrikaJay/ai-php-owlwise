@@ -47,6 +47,10 @@ body {
 
 }
 
+.btn.btn-success{
+    border-color: #8fbbe9;
+}
+
 /* id and form features */
 #InputEmail {
     border-radius: 6px;
@@ -220,12 +224,6 @@ body {
 
 .card:last-child {
     margin-right: 0;
-}
-
-.card:hover {
-    /*clip-path: circle(100%);*/
-    transform: scale(1.05);
-
 }
 
 .card-type-2 {

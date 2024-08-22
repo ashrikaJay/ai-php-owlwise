@@ -68,11 +68,11 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
             <div class="card-type-2">
                 <div class="row">
                     <div class="col-md-6">
-                        <img src="../img/working.png" height="470px" width="460px"
-                            style="border-radius: 50%;margin-left: 80px;">
+                        <img src="../img/working.png" height="420px" width="420px"
+                            style="border-radius: 50%;margin-left: 40px;">
                     </div>
                     <div class="col-md-6">
-                        <h1 class="hero-text" style="font-family: Poetsen One ,sans-serif; color:#1f3b59;">
+                        <h1 class="hero-text" style="font-family: Poetsen One ,sans-serif; color:#1f3b59; margin-left:10px;">
                             <div><?php echo ($lname); ?><br></div>
                             <div><span
                                     class="text-secondary fs-4"><?php echo ($cdate); //cdate should be deadline?></span>
@@ -97,7 +97,7 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
                                 <input onclick="hideAlertBox()" type="text" class="form-control" id="description"
                                     name="description" placeholder="Description" required>
                             </div>
-                            <div class="row col-md-2 p-4" style="margin-left: 60px;">
+                            <div class="row col-md-2 p-4" style="margin-left: 5px;">
                                 <button type="submit" class="btn btn-success"><i class="bi bi-plus-circle"
                                         style="font-size: 18px;"></i></button>
                             </div>

@@ -26,6 +26,12 @@
 
     }
 
+    .card:hover {
+        /*clip-path: circle(100%);*/
+        transform: scale(1.05);
+
+    }
+
     /* .search-input {
         padding-left: 370px;
         width: 350px;
@@ -191,7 +197,7 @@
                         </div>
                         <div class="card">
                             <img src="img/services/new-tag.png" class="card-img-top" alt="New Arrivals"
-                                style="width: 140px; height: 150px; margin-left: 12px;">
+                                style="width: 130px; height: 150px; margin-left: 12px;">
                             <div class="card-body">
                                 <h5 class="card-title">New Arrivals</h5>
                                 <p class="card-text">Stay updated with the latest additions to our bookstore. Browse
@@ -210,7 +216,7 @@
                                 <h5 class="card-title">Gift Cards</h5>
                                 <p class="card-text">Looking for the perfect gift? Give the gift of reading with
                                     OwlWise's gift cards. Ideal for birthdays, holidays, or any special occasion.</p>
-                                <a href="#" class="btn btn-primary" style="margin-top: 73px;">Buy Now</a>
+                                <a href="#" class="btn btn-primary" style="margin-top: 72px;">Buy Now</a>
                             </div>
                         </div>
                         <div class="card">
@@ -221,7 +227,7 @@
                                 <p class="card-text">Join our community book clubs to share your reading experiences and
                                     discover new books with fellow enthusiasts. It's a great way to meet new people and
                                     explore different genres.</p>
-                                <a href="#" class="btn btn-primary" style="margin-top: 25px;">Join Now</a>
+                                <a href="#" class="btn btn-primary" style="margin-top: 24px;">Join Now</a>
                             </div>
                         </div>
 
@@ -232,7 +238,7 @@
                                 <p class="card-text">Join us for virtual author talks and book signings. Get insights
                                     into your favorite authors' works and engage in stimulating discussions with fellow
                                     book lovers.</p>
-                                <a href="#" class="btn btn-primary" style="margin-top: 49px;">Attend Now</a>
+                                <a href="#" class="btn btn-primary" style="margin-top: 48px;">Attend Now</a>
                             </div>
                         </div>
                     </div>
@@ -242,12 +248,12 @@
 
                         <div class="card">
                             <img src="img/services/discount.jpeg" class="card-img-top" alt="Discounts"
-                                style="width: 180px; height: 150px;">
+                                style="width: 200px; height: 150px;">
                             <div class="card-body">
                                 <h5 class="card-title">Exclusive Discounts</h5>
                                 <p class="card-text">Save big with OwlWise's exclusive discounts and promotions. Check
                                     out our deals section to find amazing discounts on your favorite books.</p>
-                                <a href="#" class="btn btn-primary" style="margin-top: 55px;">Shop Now</a>
+                                <a href="#" class="btn btn-primary" style="margin-top: 48px;">Shop Now</a>
                             </div>
                         </div>
                         <div class="card">
@@ -257,7 +263,7 @@
                                 <h5 class="card-title">Convenient Delivery</h5>
                                 <p class="card-text">Enjoy the convenience of home delivery or choose our in-store
                                     pickup option. OwlWise ensures your books are delivered safely and on time.</p>
-                                <a href="#" class="btn btn-primary" style="margin-top: 55px;">Learn More</a>
+                                <a href="#" class="btn btn-primary" style="margin-top: 48px;">Learn More</a>
                             </div>
                         </div>
                         <div class="card">
@@ -267,7 +273,7 @@
                                 <h5 class="card-title">Donate Books</h5>
                                 <p class="card-text">Give back to the community by donating books you no longer need.
                                     OwlWise partners with local charities to distribute books to those in need.</p>
-                                <a href="#" class="btn btn-primary" style="margin-top: 55px;">Donate Now</a>
+                                <a href="#" class="btn btn-primary" style="margin-top: 48px;">Donate Now</a>
                             </div>
                         </div>
                     </div>
