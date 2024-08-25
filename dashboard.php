@@ -27,7 +27,7 @@ if(!isset($_SESSION['userloggedin'])){
     <?php include_once 'nav-logged.php';?>
 
     <!-- Intro-->
-    <div class="container-md text-center mt-5" style="max-width: 800px;">
+    <div class="container-md text-center mt-5" style="max-width: 900px;">
       <div class="custom-shadow" >
         <div class="card-type-2">
             <h1 class="hero-text" style="font-family: Poetsen One ,sans-serif; color:antiquewhite;">Welcome OwlWiser!</h1>
@@ -47,6 +47,22 @@ if(!isset($_SESSION['userloggedin'])){
           <a class="dash-card card rounded-5" href="tasks/index.php"style="width: 18rem; padding-top: 40px; height: 22rem;">
             <img src="img/dash/tasks.webp" class="card-img-top" alt="..."><br><br>
               <h3 class="dash-text">Tasks</h3>
+          </a>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top: -60px;">
+          <div class="app col-3">
+          <a class="dash-card card rounded-5" href="books/index.php"style="width: 18rem; height: 22rem;">
+            <img src="img/dash/bookList.png" class="card-img-top" alt="..." style="margin-bottom: 18px;">
+              <h3 class="dash-text">Books</h3>
+          </a>
+          </div>
+
+          <div class="app col-3">
+          <a class="dash-card card rounded-5" href="authors/index.php"style=" width: 18rem; height: 22rem;">
+            <img src="img/dash/authorList.png" class="card-img-top" alt="..." style="margin-bottom: 18px;">
+              <h3 class="dash-text">Authors</h3>
           </a>
           </div>
 

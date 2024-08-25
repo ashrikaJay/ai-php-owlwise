@@ -155,7 +155,7 @@ $conn->close();
              <a class="nav-link" aria-current="page" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-             <a class="nav-link active" href="login.php">Login</a>
+             <a class="nav-link" href="login.php">Login</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="register.php">Register</a>
@@ -171,13 +171,10 @@ $conn->close();
                 <li><a class="dropdown-item" href="#">Contact Us</a></li>
               </ul>
             </li>
-  
+            <li class="nav-item">
+             <a class="nav-link active" href="usersList.php">Admin View</a>
+            </li>
           </ul>
-          <form class="d-flex align-items-center search-form" role="search">
-            <input id="searchBar" class="form-control search-input" type="search" placeholder="Look up something?..." aria-label="Search" onfocus="startAnimation()">
-            <button class="btn btn-primary" type="submit" style="background-color:#0c617b;" >Search</button>
-          </form>
-          
         </div>
       </div>
     </nav>
@@ -226,30 +223,7 @@ $conn->close();
         <br><br>
     </div>
     <br><br>
-    <footer class="bg-dark text-white p-4">
-     <div class="container">
-       <div class="row justify-content-center" style="margin: auto;">
-         <div class="col-md-12 text-center">
-           <div class="mb-4">
-             <a href="#" class="text-white me-4">
-               <i class="bi bi-facebook"></i>
-             </a>
-             <a href="#" class="text-white me-4">
-               <i class="bi bi-tiktok"></i>
-             </a>
-             <a href="#" class="text-white me-4">
-               <i class="bi bi-instagram"></i>
-             </a>
-             <a href="#" class="text-white me-4">
-               <i class="fab fa-linkedin-in"></i>
-             </a>
-           </div>
-           <p class="mb-0">&copy; 2024 OwlWise Inc. All rights reserved.</p>
-         </div>
-       </div>
-     </div>
-    </footer>
-
+    <?php include_once("footer.php"); ?>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+5hb7O5FbU4pwE6c+7vA4/0z3m5RpO+8s5KfkAF" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-mpFkKy5qL9z7EazJKYtRa4DOdbJbVOE/wJoJ91P49xyQROFq1hCm6XfoZsmWnE4O" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>

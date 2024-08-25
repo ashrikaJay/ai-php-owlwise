@@ -66,12 +66,32 @@
                         echo '<li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Task Todos</a>
                         </li>';
+                    }elseif (strpos($currentPage, 'books/index.php') !== false) {
+                        echo '<li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.php">Books</a>
+                        </li>';
+                    }elseif (strpos($currentPage, 'authors/index.php') !== false) {
+                        echo '<li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.php">Authors</a>
+                        </li>';
+                    }
+
+                    if(basename($_SERVER['PHP_SELF']) === 'dashboard.php') {
+                        echo '<li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="logout.php">Logout</a>
+                        </li>';
+                    }else{
+                        echo '<li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="../logout.php">Logout</a>
+
+                        </li>';
                     }
             
                 ?>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a id="logout" class="nav-link" href="logout.php">Logout</a>
-                </li>
+                </li> -->
+                
 
             </ul>
         </div>
