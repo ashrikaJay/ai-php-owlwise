@@ -215,12 +215,14 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
                 </div>
                 <form id="editForm" action="dbbooks.php" method="POST">
                     <div class="modal-body">
-                        <div class="form-group">
-                            
-                            <input type="text" class="form-control" id="editDescription" name="description" required>
-                            <input type="hidden" id="editbookid" name="bookid">
-                            <input type="hidden" id="editauthorname" name="authorname">
-                            <input type="hidden" id="edittitle" name="title">
+                        <div class="form-group mb-3">
+                            <input type="text" placeholder="Book ID" class="form-control" id="editbookid" name="bookid">
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="text" placeholder="Author" class="form-control" id="editauthorname" name="authorname">
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="text" placeholder="Book Title" class="form-control" id="edittitle" name="title">
                         </div>
 
                     </div>
@@ -283,16 +285,19 @@ if (!isset($_SESSION['userloggedin']) || $_SESSION['adminloggedin'] !== true) {
             var bookId = button.getAttribute('data-id');
             var title = button.getAttribute('data-booktitle');
             var authorname = button.getAttribute('data-bookauthor');
+            var stock = button.getAttribute('data-bookstock');
 
-            var modal = editModal.querySelector('.modal-body #editDescription');
+            var modal = editModal.querySelector('.modal-body');
             var idField = editModal.querySelector('#editbookid');
             var authornameField = editModal.querySelector('#editauthorname');
             var titleField = editModal.querySelector('#edittitle');
+            var stockField = modal.querySelector('#editstock');
 
-            modal.value = title;
             idField.value = bookId;
-            authornameField.value = authorname;
             titleField.value = title;
+            authornameField.value = authorname;
+            stockField.value = stock;
+            
         });
     });
 
